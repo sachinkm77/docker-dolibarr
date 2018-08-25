@@ -33,8 +33,11 @@ RUN apt-get update -q && apt-get upgrade -yq \
 
 
 # install ssl module
-RUN ae2enmod ssl
-RUN ae2enmod headers
+RUN a2enmod ssl
+RUN a2enmod headers
+
+ADD 001-default-ssl.conf /etc/apache2/sites-enabled/001-default-ssl.conf
+RUN mkdir /etc/apache2/external
 
 # Get Dolibarr
 ADD https://github.com/Dolibarr/dolibarr/archive/${DOLI_VERSION}.zip /tmp/dolibarr.zip
