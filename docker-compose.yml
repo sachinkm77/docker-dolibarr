@@ -15,7 +15,8 @@ mariadb:
         MYSQL_DATABASE: dolibarr
 
 web:
-    build: ./images/$DOLI_VERSION
+    image: sachinkm77/docker-dolibarr:latest    
+#    build: ./images/$DOLI_VERSION
     environment:
         DOLI_DB_HOST: mariadb
         DOLI_DB_USER: root
@@ -26,8 +27,8 @@ web:
         WWW_GROUP_ID: 1000
     ports:
         - "80:80"
-	- "443:443"
+        - "443:443"
     links:
         - mariadb
     volumes:
-	- /opt/mycerts: /etc/apache2/external
+        - "/opt/mycerts:/etc/apache2/external"
