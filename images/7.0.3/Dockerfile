@@ -31,6 +31,11 @@ RUN apt-get update -q && apt-get upgrade -yq \
 	&& docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
 	&& docker-php-ext-install mysqli pdo pdo_mysql gd soap zip calendar
 
+
+# install ssl module
+RUN ae2enmod ssl
+RUN ae2enmod headers
+
 # Get Dolibarr
 ADD https://github.com/Dolibarr/dolibarr/archive/${DOLI_VERSION}.zip /tmp/dolibarr.zip
 RUN unzip -q /tmp/dolibarr.zip -d /tmp/dolibarr
@@ -39,6 +44,7 @@ RUN cp -r /tmp/dolibarr/dolibarr-${DOLI_VERSION}/scripts /var/www/
 RUN rm -rf /tmp/dolibarr
 
 EXPOSE 80
+EXPOSE 443
 
 COPY docker-run.sh /usr/local/bin/
 ENTRYPOINT ["docker-run.sh"]
