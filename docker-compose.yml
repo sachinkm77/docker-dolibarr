@@ -30,4 +30,4 @@ web:
     links:
         - mariadb
     volumes:
-	- /tmp/mycerts: /etc/apache2
+	- /opt/mycerts: /etc/apache2/external
