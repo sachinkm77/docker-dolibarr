@@ -35,7 +35,7 @@ RUN apt-get update -q && apt-get upgrade -yq \
 # install ssl module
 RUN a2enmod ssl
 RUN a2enmod headers
-
+RUN mkdir /etc/apache2/ext/mycerts
 COPY 001-default-ssl.conf /etc/apache2/sites-enabled/001-default-ssl.conf
 
 # Get Dolibarr
