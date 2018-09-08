@@ -29,7 +29,7 @@ RUN apt-get update -q && apt-get upgrade -yq \
 		unzip \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
-	&& docker-php-ext-install mysqli pdo pdo_mysql gd soap zip
+	&& docker-php-ext-install mysqli pdo pdo_mysql gd soap zip calendar
 
 
 #install ssl module
