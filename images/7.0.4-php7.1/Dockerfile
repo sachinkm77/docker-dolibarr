@@ -1,8 +1,8 @@
-FROM php:%PHP_VERSION%-stretch
+FROM php:7.1-apache-stretch
 
 MAINTAINER Garcia MICHEL <garcia@soamichel.fr>
 
-ENV DOLI_VERSION %VERSION%
+ENV DOLI_VERSION 7.0.4
 
 ENV DOLI_INSTALL_AUTO 1
 
