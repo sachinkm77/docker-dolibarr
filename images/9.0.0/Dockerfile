@@ -1,8 +1,8 @@
-FROM php:7.0-apache-stretch
+FROM php:5.6-apache-stretch
 
 MAINTAINER Garcia MICHEL <garcia@soamichel.fr>
 
-ENV DOLI_VERSION 8.0.3
+ENV DOLI_VERSION 9.0.0
 
 ENV DOLI_INSTALL_AUTO 1
 
@@ -12,7 +12,7 @@ ENV DOLI_DB_PASSWORD doli_pass
 ENV DOLI_DB_NAME dolidb
 
 ENV DOLI_ADMIN_LOGIN admin
-ENV DOLI_ADMON_PASSWORD admin
+ENV DOLI_ADMIN_PASSWORD admin
 ENV DOLI_URL_ROOT 'http://localhost'
 
 ENV WWW_USER_ID 33

@@ -6,8 +6,9 @@ Docker image for Dolibarr with auto installer on first boot.
 
 * 5.0.7 5.0.7-php7.0 5.0.7-php7.1 
 * 6.0.8 6.0.8-php7.0 6.0.8-php7.1 
-* 7.0.4 7.0.4-php7.0 7.0.4-php7.1 
-* 8.0.3 8.0.3-php7.0 8.0.3-php7.1 
+* 7.0.5 7.0.5-php7.0 7.0.5-php7.1 
+* 8.0.4 8.0.4-php7.0 8.0.4-php7.1 
+* 9.0.0 9.0.0-php7.0 9.0.0-php7.1 
 
 
 ## What is Dolibarr ?
@@ -60,7 +61,7 @@ Then run all services `docker-compose up -d`. Now, go to http://0.0.0.0 to acces
 | **DOLI_DB_PASSWORD**          | *doli_pass*        | Database user's password
 | **DOLI_DB_NAME**              | *dolidb*           | Database name
 | **DOLI_ADMIN_LOGIN**          | *admin*            | Admin's login create on the first boot
-| **DOLI_ADMON_PASSWORD**       | *admin*            | Admin'password
+| **DOLI_ADMIN_PASSWORD**       | *admin*            | Admin'password
 | **DOLI_URL_ROOT**             | *http://localhost* | Url root of the Dolibarr installation
 | **PHP_INI_DATE_TIMEZONE**     | *UTC*              | Default timezone on PHP
 | **WWW_USER_ID**               |                    | ID of user www-data. ID will not changed if leave empty. During a development, it is very practical to put the same ID as the host user.
