@@ -31,8 +31,19 @@ RUN apt-get update -q && apt-get upgrade -yq \
 	&& docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
 	&& docker-php-ext-install mysqli pdo pdo_mysql gd soap zip
 
+#install ssl module
+RUN a2enmod ssl
+RUN a2enmod headers
+RUN a2enmod rewrite
+
+RUN mkdir -p /etc/apache2/ext/mycerts
+COPY 001-default-ssl.conf /etc/apache2/sites-available/001-default-ssl.conf
+
+RUN a2ensite 001-default-ssl.conf
+RUN a2dissite 000-default.conf
+
 # Get Dolibarr
-ADD https://github.com/Dolibarr/dolibarr/archive/${DOLI_VERSION}.zip /tmp/dolibarr.zip
+ADD https://github.com/sachinkm77/dolibarr/releases/download/9.0.1_test/dolibarr-9.0.1.zip /tmp/dolibarr.zip
 RUN unzip -q /tmp/dolibarr.zip -d /tmp/dolibarr
 RUN cp -r /tmp/dolibarr/dolibarr-${DOLI_VERSION}/htdocs/* /var/www/html/ && ln -s /var/www/html /var/www/htdocs
 RUN cp -r /tmp/dolibarr/dolibarr-${DOLI_VERSION}/scripts /var/www/
