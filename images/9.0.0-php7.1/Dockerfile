@@ -45,8 +45,8 @@ RUN a2dissite 000-default.conf
 # Get Dolibarr
 ADD https://github.com/sachinkm77/dolibarr/releases/download/9.0.1_test/dolibarr-9.0.1.zip /tmp/dolibarr.zip
 RUN unzip -q /tmp/dolibarr.zip -d /tmp/dolibarr
-RUN cp -r /tmp/dolibarr/dolibarr-${DOLI_VERSION}/htdocs/* /var/www/html/ && ln -s /var/www/html /var/www/htdocs
-RUN cp -r /tmp/dolibarr/dolibarr-${DOLI_VERSION}/scripts /var/www/
+RUN cp -r /tmp/dolibarr/dolibarr-9.0.1/htdocs/* /var/www/html/ && ln -s /var/www/html /var/www/htdocs
+RUN cp -r /tmp/dolibarr/dolibarr-9.0.1/scripts /var/www/
 RUN rm -rf /tmp/dolibarr
 
 EXPOSE 80
